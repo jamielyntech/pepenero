@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pepe Nero Ristorante Italiano — Kasane, Botswana</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1A1208;
+    --olive: #4A5240;
+    --terracotta: #C4622D;
+    --gold: #B8924A;
+    --light-olive: #8A9178;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 60px;
+    background: rgba(26, 18, 8, 0.92);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .nav-links a:hover { opacity: 1; }
+
+  .nav-reserve {
+    background: var(--terracotta);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    transition: background 0.3s;
+  }
+
+  .nav-reserve:hover { background: var(--gold); }
+
+  /* HERO */
+  .hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 30% 50%, rgba(196, 98, 45, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 30%, rgba(74, 82, 64, 0.2) 0%, transparent 60%),
+      linear-gradient(160deg, #1A1208 0%, #2D2010 50%, #1A1208 100%);
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 20px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(56px, 8vw, 110px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 0.95;
+    margin-bottom: 8px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--light-olive);
+    margin-bottom: 48px;
+    letter-spacing: 2px;
+  }
+
+  .hero-location {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.5;
+    margin-bottom: 48px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--terracotta);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(245, 240, 232, 0.3);
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .scroll-text {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  /* INTRO STRIP */
+  .intro-strip {
+    background: var(--olive);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+  }
+
+  .strip-item {
+    text-align: center;
+    color: var(--cream);
+  }
+
+  .strip-item span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+
+  .strip-item strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  /* STORY SECTION */
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 70vh;
+  }
+
+  .story-image {
+    background: linear-gradient(135deg, #2D2010, #4A3020, #1A1208);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+  }
+
+  .story-image-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    color: rgba(196, 98, 45, 0.3);
+  }
+
+  .story-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(196, 98, 45, 0.03) 40px,
+      rgba(196, 98, 45, 0.03) 41px
+    );
+  }
+
+  .story-content {
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--dark);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--olive);
+  }
+
+  .section-body {
+    font-size: 14px;
+    line-height: 1.9;
+    color: #4A4030;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--terracotta);
+    margin-bottom: 32px;
+  }
+
+  /* MENU PREVIEW */
+  .menu-preview {
+    background: var(--dark);
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .menu-preview .section-eyebrow { color: var(--gold); }
+  .menu-preview .section-title { color: var(--cream); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1000px;
+    margin: 60px auto;
+  }
+
+  .menu-card {
+    background: rgba(245, 240, 232, 0.04);
+    border: 1px solid rgba(245, 240, 232, 0.08);
+    padding: 40px 30px;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+
+  .menu-card:hover {
+    background: rgba(196, 98, 45, 0.1);
+    border-color: rgba(196, 98, 45, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .menu-card-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .menu-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--cream);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  .menu-card-desc {
+    font-size: 12px;
+    color: rgba(245, 240, 232, 0.5);
+    line-height: 1.7;
+  }
+
+  /* EXPERIENCE */
+  .experience {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .experience-content {
+    padding: 80px 60px;
+    background: var(--olive);
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .experience-content .section-title { color: var(--cream); }
+  .experience-content .section-body { color: rgba(245, 240, 232, 0.75); }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .feature-icon {
+    width: 32px;
+    height: 32px;
+    background: rgba(196, 98, 45, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .feature-text {
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  .experience-image {
+    background: linear-gradient(160deg, #3A4835, #5A6A50, #2A3025);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .experience-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(255,255,255,0.02) 30px,
+      rgba(255,255,255,0.02) 31px
+    );
+  }
+
+  .exp-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 60px;
+    color: rgba(245, 240, 232, 0.2);
+    position: relative;
+  }
+
+  /* RESERVE */
+  .reserve {
+    padding: 100px 60px;
+    text-align: center;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .reserve::before {
+    content: 'PEPE NERO';
+    position: absolute;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 200px;
+    font-weight: 300;
+    color: rgba(74, 82, 64, 0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .reserve-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .reserve-sub {
+    font-size: 13px;
+    color: var(--light-olive);
+    margin-bottom: 48px;
+    letter-spacing: 1px;
+    position: relative;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .contact-item {
+    text-align: center;
+  }
+
+  .contact-item span {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+
+  .contact-item strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: 3px;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    color: rgba(245, 240, 232, 0.4);
+    letter-spacing: 1px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-social a {
+    color: rgba(245, 240, 232, 0.5);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .footer-social a:hover { color: var(--gold); }
+
+  /* TRIPADVISOR BADGE */
+  .ta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    margin-top: 24px;
+    position: relative;
+  }
+
+  .ta-badge span {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--olive);
+  }
+
+  .ta-stars { color: #00AA6C; font-size: 14px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .story, .experience { grid-template-columns: 1fr; }
+    .story-content, .experience-content { padding: 60px 24px; }
+    .menu-grid { grid-template-columns: 1fr; }
+    .intro-strip { padding: 24px; gap: 40px; }
+    .reserve { padding: 60px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Pepe Nero</div>
+  <ul class="nav-links">
+    <li><a href="#">Our Story</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Experience</a></li>
+    <li><a href="#">Find Us</a></li>
+  </ul>
+  <a href="tel:+26778512900" class="nav-reserve">Reserve a Table</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Kasane, Botswana</p>
+    <h1 class="hero-title">Pepe<br><em>Nero</em></h1>
+    <p class="hero-sub">Ristorante Italiano</p>
+    <p class="hero-location">President Avenue, Kasane &nbsp;&bull;&nbsp; Gateway to Chobe National Park</p>
+    <div class="hero-ctas">
+      <a href="tel:+26778512900" class="btn-primary">Reserve a Table</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <p class="scroll-text">Scroll</p>
+  </div>
+</section>
+
+<div class="intro-strip">
+  <div class="strip-item">
+    <span>Open Daily</span>
+    <strong>Lunch &amp; Dinner</strong>
+  </div>
+  <div class="strip-item">
+    <span>Location</span>
+    <strong>President Ave, Kasane</strong>
+  </div>
+  <div class="strip-item">
+    <span>Reservations</span>
+    <strong>+267 78 512 900</strong>
+  </div>
+  <div class="strip-item">
+    <span>Experience</span>
+    <strong>Dine-In &amp; Outdoor</strong>
+  </div>
+</div>
+
+<section class="story">
+  <div class="story-image">
+    <div class="story-image-placeholder">🍝</div>
+  </div>
+  <div class="story-content">
+    <p class="section-eyebrow">Our Story</p>
+    <div class="divider"></div>
+    <h2 class="section-title">Italy, in the heart of <em>the African bush.</em></h2>
+    <p class="section-body">
+      You did not fly to Botswana expecting to find handmade pasta and wood-fired flavors. But here we are, on President Avenue in Kasane, serving the kind of Italian food that takes you straight back to a kitchen in Rome.
+    </p>
+    <p class="section-body">
+      Every dish is made with fresh ingredients, real technique, and the care that only comes from someone who grew up cooking this way. We just happen to be 80 kilometers from Victoria Falls.
+    </p>
+    <div class="ta-badge">
+      <span class="ta-stars">&#9679;&#9679;&#9679;&#9679;&#9679;</span>
+      <span>Highly Rated on TripAdvisor &bull; Kasane, Botswana</span>
+    </div>
+  </div>
+</section>
+
+<section class="menu-preview" id="menu">
+  <p class="section-eyebrow">What We Serve</p>
+  <h2 class="section-title" style="color: var(--cream);">Fresh. Simple. <em style="color: var(--terracotta);">Italian.</em></h2>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-icon">🍝</div>
+      <h3 class="menu-card-title">Pasta</h3>
+      <p class="menu-card-desc">Made fresh daily. Classic Italian sauces using locally sourced ingredients.</p>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-icon">🍕</div>
+      <h3 class="menu-card-title">Pizza</h3>
+      <p class="menu-card-desc">Thin crust, generous toppings, cooked to order every time.</p>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-icon">🍨</div>
+      <h3 class="menu-card-title">Desserts</h3>
+      <p class="menu-card-desc">House-made gelato and traditional Italian sweets to finish your meal right.</p>
+    </div>
+  </div>
+  <a href="tel:+26778512900" class="btn-primary" style="position:relative;">Call to Ask About Today's Menu</a>
+</section>
+
+<section class="experience">
+  <div class="experience-content">
+    <p class="section-eyebrow">The Experience</p>
+    <div class="divider" style="background: var(--gold);"></div>
+    <h2 class="section-title">Dinner under the African sky.</h2>
+    <p class="section-body">Outdoor seating. Cold drinks. The sound of the bush in the background. This is what dining in Kasane should feel like.</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🌿</div>
+        <p class="feature-text">Outdoor &amp; indoor seating available</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🍷</div>
+        <p class="feature-text">Wine, beer, and soft drinks</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📦</div>
+        <p class="feature-text">In-store pickup available</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">👨‍👩‍👧</div>
+        <p class="feature-text">Family and group friendly</p>
+      </div>
+    </div>
+  </div>
+  <div class="experience-image">
+    <div class="exp-placeholder">🌅</div>
+  </div>
+</section>
+
+<section class="reserve">
+  <h2 class="reserve-title">Come Find Us</h2>
+  <p class="reserve-sub">President Avenue, Kasane, Botswana &nbsp;&bull;&nbsp; Gateway to Chobe National Park</p>
+  <a href="tel:+26778512900" class="btn-primary">+267 78 512 900</a>
+  <div class="contact-info">
+    <div class="contact-item">
+      <span>Email</span>
+      <strong>pepenerokasane@gmail.com</strong>
+    </div>
+    <div class="contact-item">
+      <span>Instagram</span>
+      <strong>@ristorantepepenero</strong>
+    </div>
+    <div class="contact-item">
+      <span>Find Us On</span>
+      <strong>Facebook &amp; TripAdvisor</strong>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">PEPE NERO</div>
+  <p class="footer-text">Ristorante Italiano &bull; Kasane, Botswana</p>
+  <div class="footer-social">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">TripAdvisor</a>
+  </div>
+</footer>
+
+</body>
+</html>
